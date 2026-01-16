@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BNIF Constitution | বাংলাদেশ ন্যাশনাল ইত্তিহাদ ফ্রন্ট</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Anik:wght@400;700&family=MuseoModerno:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+             :root {
+            --navy: #0d1b3e;
+            --gold: #f3d051;
+            --white: #ffffff;
+            --soft-gray: #f2f4f7;
+        }
+
+        body {
+            font-family: 'Anek Bangla', sans-serif;
+            background-color: var(--soft-gray);
+            margin: 0;
+            color: var(--navy);
+        }
+
+        .eng { font-family: 'MuseoModerno', cursive; }
+
+        /* Constitution Section Styles */
+        #constitution {
+            padding: 100px 5% 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .header-box {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .title-huge {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin: 10px 0;
+            font-weight: 900;
+        }
+
+        .section-desc {
+            color: var(--subtext);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin-bottom: 40px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .search-box {
+            flex: 1;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            background: var(--glass);
+            color: #fff;
+            font-family: 'Anik';
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+        }
+
+        .btn-expand {
+            padding: 10px 25px;
+            background: var(--gold);
+            color: #000;
+            border-radius: 50px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* Accordion Styles */
+        .chapter-title {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            padding: 10px 20px;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 8px;
+            border-left: 5px solid var(--gold);
+        }
+
+        .const-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            transition: 0.3s;
+            overflow: hidden;
+        }
+
+        .const-card:hover {
+            border-color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .card-header {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .card-header h3 {
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .card-header i {
+            transition: 0.4s;
+            color: var(--gold);
+        }
+
+        .card-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            padding: 0 25px;
+            color: var(--subtext);
+            background: rgba(0,0,0,0.2);
+        }
+
+        .card-body.open {
+            max-height: 1000px;
+            padding: 20px 25px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .card-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+        }
+
+        .card-body ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .card-body ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .title-huge { font-size: 2.5rem; }
+            .search-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<section id="constitution">
+    <div class="header-box">
+        <h1 class="title-huge eng">THE CONSTITUTION</h1>
+        <p class="section-desc">বাংলাদেশ ন্যাশনাল ইত্তিহাদ ফ্রন্ট (BNIF)-এর পূর্ণাঙ্গ ৫০টি ধারা ও উপ-ধারা। আল্লাহর সার্বভৌমত্ব এবং ইনসাফ কায়েমের মূল চালিকাশক্তি।</p>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="constSearch" class="search-box" placeholder="ধারা বা বিষয় খুঁজুন (যেমন: সার্বভৌমত্ব, সিন্ডিকেট, বিচার...)">
+        <button class="btn-expand" onclick="expandAll()">Expand All</button>
+    </div>
+
+    <div id="constContainer">
+        <div class="chapter-title">১. মৌলিক ভিত্তি ও আদর্শ</div>
+        <div class="const-card" onclick="toggleCard(1)">
+            <div class="card-header"><h3>১. সার্বভৌমত্ব</h3><i class="fas fa-plus" id="icon-1"></i></div>
+            <div class="card-body" id="body-1">
+                <p>চূড়ান্ত সার্বভৌমত্ব একমাত্র আল্লাহর।</p>
+                <ul><li>উপ-ধারা ১.১: সকল আইন ও নীতিনির্ধারণী সিদ্ধান্ত আল্লাহর দেওয়া ইনসাফের নীতির সাথে সামঞ্জস্যপূর্ণ হতে হবে।</li></ul>
+            </div>
+        </div>
+        <div class="const-card" onclick="toggleCard(2)">
+            <div class="card-header"><h3>২. জনগণের মতামত</h3><i class="fas fa-plus" id="icon-2"></i></div>
+            <div class="card-body" id="body-2">
+                <p>জনগণ রাষ্ট্র ও দলের পরামর্শক।</p>
+                <ul><li>উপ-ধারা ২.১: 'শূরা' পদ্ধতিতে জনগণের প্রতিনিধি ও বিশেষজ্ঞদের মতামত বাধ্যতামূলকভাবে গ্রহণ করা হবে।</li></ul>
+            </div>
+        </div>
+        <div class="const-card" onclick="toggleCard(3)">
+            <div class="card-header"><h3>৩. আধিপত্যবাদ বিরোধী অবস্থান</h3><i class="fas fa-plus" id="icon-3"></i></div>
+            <div class="card-body" id="body-3">
+                <ul><li>উপ-ধারা ৩.১: যেকোনো দেশি বা বিদেশি শক্তির অন্যায্য হস্তক্ষেপ বা দাসত্বের বিরুদ্ধে BNIF আপসহীন থাকবে।</li></ul>
+            </div>
+        </div>
+
+        <div class="chapter-title">২. সদস্যপদ ও শৃঙ্খলা</div>
+        <div class="const-card" onclick="toggleCard(4)">
+            <div class="card-header"><h3>৪. সদস্যপদ লাভ</h3><i class="fas fa-plus" id="icon-4"></i></div>
+            <div class="card-body" id="body-4">
+                <ul>
+                    <li>উপ-ধারা ৪.১: প্রার্থীকে অবশ্যই মাদক, সুদ এবং যেকোনো প্রকার অপরাধমূলক কর্মকাণ্ড থেকে মুক্ত হতে হবে।</li>
+                    <li>উপ-ধারা ৪.২: সদস্য হওয়ার আগে "BNIF ডিজিটাল ওরিয়েন্টেশন" কোর্স সম্পন্ন করতে হবে।</li>
+                </ul>
+            </div>
+        </div>
+        <div class="const-card" onclick="toggleCard(5)">
+            <div class="card-header"><h3>৫. বহিষ্কার ও দণ্ড</h3><i class="fas fa-plus" id="icon-5"></i></div>
+            <div class="card-body" id="body-5">
+                <ul>
+                    <li>উপ-ধারা ৫.১: দলের নাম ব্যবহার করে চাঁদা দাবি বা তদবির করলে সদস্যপদ আজীবনের জন্য স্থগিত হবে।</li>
+                    <li>উপ-ধারা ৫.২: কোনো সদস্য সুদের কারবারের সাথে জড়িত প্রমাণিত হলে তাকে ৩ দিনের মধ্যে পদত্যাগ করতে হবে।</li>
+                </ul>
+            </div>
+        </div>
+		
+		<div class="chapter-title">৩. সংগঠন পদ্ধতি ও নেতৃত্ব</div>
+        <div class="const-card" onclick="toggleCard(6)">
+            <div class="card-header"><h3>৬. মজলিস-উশ-শূরা গঠন</h3><i class="fas fa-plus" id="icon-6"></i></div>
+            <div class="card-body" id="body-6">
+                <ul>
+                    <li>উপ-ধারা ৬.১: শূরার সদস্য হতে হলে সংশ্লিষ্ট বিষয়ে বিশেষজ্ঞ হতে হবে অথবা ন্যূনতম ৫ বছরের সক্রিয় সামাজিক কাজের অভিজ্ঞতা থাকতে হবে।</li>
+                </ul>
+            </div>
+        </div>
+        <div class="const-card" onclick="toggleCard(7)">
+            <div class="card-header"><h3>৭. নেতৃত্ব নির্বাচন</h3><i class="fas fa-plus" id="icon-7"></i></div>
+            <div class="card-body" id="body-7">
+                <ul>
+                    <li>উপ-ধারা ৭.১: দলের কোনো পদ "বংশপরম্পরায়" বা "উত্তরাধিকার সূত্রে" প্রদান করা কঠোরভাবে নিষিদ্ধ।</li>
+                    <li>উপ-ধারা ৭.২: পদপ্রার্থী নিজে নিজের প্রচারণা করতে পারবেন না; শূরা তার যোগ্যতা বিবেচনা করে দায়িত্ব অর্পণ করবে।</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-title">৪. সিন্ডিকেট, সুদ ও ঘুষ নির্মূল</div>
+        <div class="const-card" onclick="toggleCard(8)">
+            <div class="card-header"><h3>৮. বাজার সিন্ডিকেট দমন</h3><i class="fas fa-plus" id="icon-8"></i></div>
+            <div class="card-body" id="body-8">
+                <ul>
+                    <li>উপ-ধারা ৮.১: প্রতিটি জেলায় একটি "মার্কেট মনিটরিং টাস্কফোর্স" থাকবে যারা পণ্য মজুতদারদের তথ্য সংগ্রহ করে প্রশাসনকে চাপ দেবে।</li>
+                    <li>উপ-ধারা ৮.২: সিন্ডিকেটের সাথে জড়িত কোনো ব্যবসায়ী BNIF-এর কোনো পদে থাকতে পারবে না।</li>
+                </ul>
+            </div>
+        </div>
+        <div class="const-card" onclick="toggleCard(9)">
+            <div class="card-header"><h3>৯. ঘুষ বিরোধী সেল</h3><i class="fas fa-plus" id="icon-9"></i></div>
+            <div class="card-body" id="body-9">
+                <ul>
+                    <li>উপ-ধারা ৯.১: সরকারি অফিসে ঘুষ ছাড়া সেবা পেতে সাধারণ মানুষকে সহায়তার জন্য "হেল্পডেস্ক" স্থাপন করা হবে।</li>
+                    <li>উপ-ধারা ৯.২: ডিজিটাল এভিডেন্স (অডিও/ভিডিও) সংগ্রহ করে ঘুষখোর কর্মকর্তাদের মুখোশ উন্মোচন করা হবে।</li>
+                </ul>
+            </div>
+        </div>
+        <div class="const-card" onclick="toggleCard(10)">
+            <div class="card-header"><h3>১০. সুদ নির্মূল নীতিমালা</h3><i class="fas fa-plus" id="icon-10"></i></div>
+            <div class="card-body" id="body-10">
+                <ul><li>উপ-ধারা ১০.১: ক্ষুদ্র ঋণের নামে চড়া সুদ ও শোষণ বন্ধে "কর্জ-এ-হাসানা" বা সুদমুক্ত ক্ষুদ্র ঋণ তহবিল গঠন করা হবে।</li></ul>
+            </div>
+        </div>
+
+        <div class="chapter-title">৫. অর্থনৈতিক সংস্কার</div>
+        <div class="const-card" onclick="toggleCard(11)">
+            <div class="card-header"><h3>১১. আর্থিক স্বচ্ছতা</h3><i class="fas fa-plus" id="icon-11"></i></div>
+            <div class="card-body" id="body-11">
+                <ul>
+				<li>উপ-ধারা ১১.১: সকল লেনদেন ক্যাশলেস হবে এবং প্রতি ৩ মাস অন্তর রিপোর্ট ওয়েবসাইটে পাবলিক করা হবে।</li>
+				<li>উপ-ধারা ১১.২: প্রতি ৩ মাস অন্তর দলের আয়-ব্যয়ের রিপোর্ট ওয়েবসাইটে পাবলিক করতে হবে।</li>
+				</ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(12)">
+            <div class="card-header"><h3>১২. সম্পদ পাচার রোধ</h3><i class="fas fa-plus" id="icon-12"></i></div>
+            <div class="card-body" id="body-12">
+                <ul>
+				<li>উপ-ধারা ১২.১: দেশীয় সম্পদ বিদেশে পাচারের বিরুদ্ধে একটি "ইকোনমিক ইন্টেলিজেন্স উইং" গঠন করা হবে।</li>
+				
+				</ul>
+            </div>
+        </div>
+		<div class="chapter-title">৬. বিচার বিভাগ ও আইন</div>
+		<div class="const-card" onclick="toggleCard(13)">
+            <div class="card-header"><h3>১৩. বিচার বিভাগের স্বাধীনতা</h3><i class="fas fa-plus" id="icon-13"></i></div>
+            <div class="card-body" id="body-13">
+                <ul>
+				<li>উপ-ধারা ১৩.১: বিচারক নিয়োগের ক্ষেত্রে কোনো রাজনৈতিক সুপারিশ গ্রাহ্য হবে না; নিয়োগ হবে শতভাগ মেধার ভিত্তিতে।</li>
+				
+				</ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(14)">
+            <div class="card-header"><h3>১৪. দ্রুত বিচার নিশ্চিতকরণ</h3><i class="fas fa-plus" id="icon-14"></i></div>
+            <div class="card-body" id="body-14">
+                <ul>
+				<li>উপ-ধারা ১৪.১: ৩ থেকে ৬ মাসের মধ্যে মৌলিক মামলা নিষ্পত্তির জন্য "লিগ্যাল রিফর্ম প্রস্তাব" কার্যকর করতে আন্দোলন করা হবে।</li>
+				
+				</ul>
+            </div>
+		</div>
+		<div class="chapter-title">৭. বিভাগীয় ও স্তরভিত্তিক দায়িত্ব</div>
+		<div class="const-card" onclick="toggleCard(15)">
+            <div class="card-header"><h3>১৫. কেন্দ্রীয় কাউন্সিল</h3><i class="fas fa-plus" id="icon-15"></i></div>
+            <div class="card-body" id="body-15">
+                <ul>
+				<li>সর্বোচ্চ নীতিনির্ধারণী কাউন্সিল।</li>
+				
+				</ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(16)">
+            <div class="card-header"><h3>১৬. বিভাগীয় দায়িত্বশীল</h3><i class="fas fa-plus" id="icon-16"></i></div>
+            <div class="card-body" id="body-16">
+                <ul>
+				<li>উপ-ধারা ১৬.১: প্রতি বিভাগে একজন "নাযিম" থাকবেন যিনি জেলার কার্যক্রমের সাপ্তাহিক রিপোর্ট নেবেন।</li>
+				</ul>
+            </div>
+		</div>	
+		<div class="const-card" onclick="toggleCard(17)">
+            <div class="card-header"><h3>১৭. জেলা ও মহানগরী</h3><i class="fas fa-plus" id="icon-17"></i></div>
+            <div class="card-body" id="body-17">
+                <ul>
+				<li>উপ-ধারা ১৭.১: জেলা পর্যায়ে একটি "ইনভেস্টিগেশন ইউনিট" থাকবে যারা স্থানীয় দুর্নীতি মনিটর করবে।</li>
+				</ul>
+            </div>
+		</div>	
+		<div class="const-card" onclick="toggleCard(18)">
+            <div class="card-header"><h3>১৮. উপজেলা ও থানা</h3><i class="fas fa-plus" id="icon-18"></i></div>
+            <div class="card-body" id="body-18">
+                <ul>
+				<li>মাঠ পর্যায়ের প্রশাসনিক তদারকি</li>
+				</ul>
+            </div>
+		</div>
+		<div class="const-card" onclick="toggleCard(19)">
+            <div class="card-header"><h3>১৯. ইউনিয়ন ও পৌরসভা</h3><i class="fas fa-plus" id="icon-19"></i></div>
+            <div class="card-body" id="body-19">
+                <ul>
+				<li>সাধারণ মানুষের মৌলিক সমস্যার তাৎক্ষণিক সমাধান।</li>
+				</ul>
+            </div>
+		</div>
+		<div class="const-card" onclick="toggleCard(20)">
+            <div class="card-header"><h3>২০. ওয়ার্ড ও ইউনিট</h3><i class="fas fa-plus" id="icon-20"></i></div>
+            <div class="card-body" id="body-20">
+                <ul>
+				<li>ইনসাফের সর্বনিম্ন ভিত্তি।</li>
+				</ul>
+            </div>
+		</div>
+			
+		<div class="chapter-title">৮. বিবিধ ও টেকনোলজি</div>
+        <div class="const-card" onclick="toggleCard(21)">
+            <div class="card-header"><h3>২১. ডিজিটাল প্ল্যাটফর্ম</h3><i class="fas fa-plus" id="icon-21"></i></div>
+            <div class="card-body" id="body-21">
+                <ul><li>উপ-ধারা ২১.১: দলের প্রতিটি সিদ্ধান্ত এবং সদস্যদের অ্যাক্টিভিটি একটি সেন্ট্রাল অ্যাপের মাধ্যমে ট্র্যাক করা হবে।</li></ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(22)">
+            <div class="card-header"><h3>২২. শপথনামা রক্ষা</h3><i class="fas fa-plus" id="icon-22"></i></div>
+            <div class="card-body" id="body-22">
+                <ul><li>উপ-ধারা ২২.১: প্রতি বছর সদস্যদের শপথ নবায়ন করতে হবে এবং তাদের চারিত্রিক মূল্যায়ন (Character Audit) করা হবে।</li></ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(23)">
+            <div class="card-header"><h3>২৩. গঠনতন্ত্র পরিবর্তন</h3><i class="fas fa-plus" id="icon-23"></i></div>
+            <div class="card-body" id="body-23">
+                <ul><li>উপ-ধারা ২৩.১: মজলিস-উশ-শূরার দুই-তৃতাংশ সদস্যের ভোটের মাধ্যমে কেবল গঠনতন্ত্রের প্রশাসনিক ধারা পরিবর্তন করা যাবে; মূল আদর্শিক ভিত্তি (আল্লাহর সার্বভৌমত্ব ও ইনসাফ) অপরিবর্তনীয় থাকবে।</li></ul>
+            </div>
+        </div>
+
+        <div class="chapter-title">৯. শিক্ষা ও গবেষণা</div>
+        <div class="const-card" onclick="toggleCard(24)">
+            <div class="card-header"><h3>২৪. নৈতিক ও মানসম্পন্ন শিক্ষা</h3><i class="fas fa-plus" id="icon-24"></i></div>
+            <div class="card-body" id="body-24">
+                <ul>
+                    <li>উপ-ধারা ২৪.১: প্রাথমিক স্তর থেকে প্রতিটি শিক্ষার্থীর জন্য বাধ্যতামূলক নৈতিক ও ধর্মীয় শিক্ষা নিশ্চিত করা।</li>
+                    <li>উপ-ধারা ২৪.২: কারিগরি ও প্রযুক্তিগত শিক্ষাকে বাধ্যতামূলক করা হবে।</li>
+                </ul>
+            </div>
+        </div>
+        <div class="const-card" onclick="toggleCard(25)">
+            <div class="card-header"><h3>২৫. মেধাভিত্তিক কারিকুলাম</h3><i class="fas fa-plus" id="icon-25"></i></div>
+            <div class="card-body" id="body-25">
+                <ul>
+                    <li>উপ-ধারা ২৫.১: সার্টিফিকেট-সর্বস্ব শিক্ষার বদলে কর্মমুখী ও দক্ষতা-ভিত্তিক ক্রেডিট সিস্টেম চালু করা।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(26)">
+            <div class="card-header"><h3>২৬. গবেষণা ও উন্নয়ন (R&D)</h3><i class="fas fa-plus" id="icon-26"></i></div>
+            <div class="card-body" id="body-26">
+                <ul>
+                    <li>উপ-ধারা ২৬.১: জাতীয় বাজেটের একটি নির্দিষ্ট অংশ (কমপক্ষে ৩%) সরাসরি মৌলিক গবেষণায় বরাদ্দ দেওয়ার দাবি তোলা হবে।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="chapter-title">১০. স্বাস্থ্য ও মানবিক সেবা</div>
+        <div class="const-card" onclick="toggleCard(27)">
+            <div class="card-header"><h3>২৭. স্বাস্থ্যসেবার ইনসাফ</h3><i class="fas fa-plus" id="icon-27"></i></div>
+            <div class="card-body" id="body-27">
+                <ul>
+                    <li>উপ-ধারা ২৭.১: প্রতিটি নাগরিকের জন্য একটি "ইউনিভার্সাল হেলথ আইডি" কার্ডের ব্যবস্থা করা যাতে বিনা খরচে বা সুলভে জরুরি সেবা পাওয়া যায়।</li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="const-card" onclick="toggleCard(28)">
+            <div class="card-header"><h3>২৮. ভেজাল ও সিন্ডিকেট নির্মূল</h3><i class="fas fa-plus" id="icon-28"></i></div>
+            <div class="card-body" id="body-28">
+                <ul>
+                    <li>উপ-ধারা ২৮.১: জীবন রক্ষাকারী ঔষধের সিন্ডিকেট এবং খাদ্যে ভেজালকারীদের বিরুদ্ধে "জিরো টলারেন্স" নীতি গ্রহণ করা হবে।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(29)">
+            <div class="card-header"><h3>২৯. মানবিক সহায়তা ইউনিট</h3><i class="fas fa-plus" id="icon-29"></i></div>
+            <div class="card-body" id="body-29">
+                <ul>
+                    <li>উপ-ধারা ২৯.১: প্রতিটি জেলায় "BNIF ইমার্জেন্সি রেসপন্স টিম" থাকবে যারা প্রাকৃতিক দুর্যোগে সরাসরি মাঠে কাজ করবে।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="chapter-title">১১. পররাষ্ট্রনীতি ও সার্বভৌমত্ব</div>
+        <div class="const-card" onclick="toggleCard(30)">
+            <div class="card-header"><h3>৩০. সার্বভৌমত্ব রক্ষা</h3><i class="fas fa-plus" id="icon-30"></i></div>
+            <div class="card-body" id="body-30">
+                <ul>
+                    <li>উপ-ধারা ৩০.১: কোনো বিদেশি শক্তির সাথে এমন কোনো চুক্তি করা হবে না যা দেশের সার্বভৌমত্ব বা আল্লাহর সার্বভৌমত্বের নীতির পরিপন্থী।</li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="const-card" onclick="toggleCard(31)">
+            <div class="card-header"><h3>৩১. বিশ্ব মুসলিম উম্মাহ ও মজলুমের পাশে</h3><i class="fas fa-plus" id="icon-31"></i></div>
+            <div class="card-body" id="body-31">
+                <ul>
+                    <li>উপ-ধারা ৩১.১: সারা বিশ্বের মজলুম মানুষের অধিকার আদায়ে BNIF নৈতিক ও কূটনৈতিক সমর্থন জানাবে।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(32)">
+            <div class="card-header"><h3>৩২. প্রবাসী কল্যাণ</h3><i class="fas fa-plus" id="icon-32"></i></div>
+            <div class="card-body" id="body-32">
+                <ul>
+                    <li>উপ-ধারা ৩২.১: প্রবাসীদের পাঠানো রেমিট্যান্সের পূর্ণ নিরাপত্তা এবং তাদের ভোটাধিকার নিশ্চিত করতে আলাদা "রেমিট্যান্স উইং" কাজ করবে।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="chapter-title">১২. পরিবেশ ও প্রাকৃতিক সম্পদব</div>
+        <div class="const-card" onclick="toggleCard(33)">
+            <div class="card-header"><h3>৩৩. সম্পদ রক্ষা</h3><i class="fas fa-plus" id="icon-33"></i></div>
+            <div class="card-body" id="body-33">
+                <ul>
+                    <li>উপ-ধারা ৩৩.১: নদী, বন এবং খনিজ সম্পদ কোনো ব্যক্তি বা গোষ্ঠীর আধিপত্যের কবলে যেতে দেওয়া হবে না।</li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="const-card" onclick="toggleCard(34)">
+            <div class="card-header"><h3>৩৪. সবুজ বিপ্লব</h3><i class="fas fa-plus" id="icon-34"></i></div>
+            <div class="card-body" id="body-34">
+                <ul>
+                    <li>উপ-ধারা ৩৪.১: প্রতিটি সদস্যকে বছরে কমপক্ষে তিনটি করে গাছ রোপণ ও পরিচর্যার শপথ নিতে হবে।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="chapter-title">১৩. যুব ও নারী শক্তি</div>
+		<div class="const-card" onclick="toggleCard(35)">
+            <div class="card-header"><h3>৩৫. যুব নেতৃত্ব</h3><i class="fas fa-plus" id="icon-35"></i></div>
+            <div class="card-body" id="body-35">
+                <ul>
+                    <li>উপ-ধারা ৩৫.১: কেন্দ্রীয় শূরার একটি নির্দিষ্ট শতাংশ পদ অনূর্ধ্ব ৩৫ বছর বয়সী মেধাবী তরুণদের জন্য বরাদ্দ থাকবে।</li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="const-card" onclick="toggleCard(36)">
+            <div class="card-header"><h3>৩৬. নারীর মর্যাদা ও নিরাপত্তা</h3><i class="fas fa-plus" id="icon-36"></i></div>
+            <div class="card-body" id="body-36">
+                <ul>
+                    <li>উপ-ধারা ৩৬.১: ইসলামি ও মানবিক মূল্যবোধের আলোকে নারীর জান-মাল ও কর্মক্ষেত্রে পূর্ণ নিরাপত্তা নিশ্চিত করা।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="chapter-title">১৪. তথ্য ও প্রযুক্তি</div>
+        <div class="const-card" onclick="toggleCard(37)">
+            <div class="card-header"><h3>৩৭. ডিজিটাল ইনসাফ</h3><i class="fas fa-plus" id="icon-37"></i></div>
+            <div class="card-body" id="body-37">
+                <ul>
+                    <li>উপ-ধারা ৩৭.১: প্রতিটি সরকারি তথ্য (গোপনীয় ডাটা বাদে) জনগণের জন্য উন্মুক্ত বা 'ওপেন ডাটা' পলিসি কার্যকর করা।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(38)">
+            <div class="card-header"><h3>৩৮. সাইবার নিরাপত্তা</h3><i class="fas fa-plus" id="icon-38"></i></div>
+            <div class="card-body" id="body-38">
+                <ul>
+                    <li>উপ-ধারা ৩৮.১: সাইবার বুলিং এবং অপপ্রচারের বিরুদ্ধে নৈতিক ডিজিটাল যোদ্ধা গড়ে তোলা।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="chapter-title">১৫. বিশেষ সেল ও কমিশন</div>
+        <div class="const-card" onclick="toggleCard(39)">
+            <div class="card-header"><h3>৩৯. দুর্নীতি দমন কমিশন</h3><i class="fas fa-plus" id="icon-39"></i></div>
+            <div class="card-body" id="body-39">
+                <ul>
+                    <li>উপ-ধারা ৩৯.১: দলের নিজস্ব দুর্নীতি দমন সেল প্রতি ৬ মাস অন্তর দায়িত্বশীলদের সম্পদের হিসাব অডিট করবে।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(40)">
+            <div class="card-header"><h3>৪০. লিগ্যাল এইড কমিশন</h3><i class="fas fa-plus" id="icon-40"></i></div>
+            <div class="card-body" id="body-40">
+                <ul>
+                    <li>উপ-ধারা ৪০.১: আধিপত্যবাদের শিকার সাধারণ মানুষের জন্য বিনামূল্যে আইনি সহায়তার জন্য "BNIF লইয়ার্স ফোরাম" গঠন।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="chapter-title">১৬. সাংগঠনিক বিধি ও সংস্কার</div>
+		<div class="const-card" onclick="toggleCard(41)">
+            <div class="card-header"><h3>৪১. পদ বন্টন ও মেয়াদ</h3><i class="fas fa-plus" id="icon-41"></i></div>
+            <div class="card-body" id="body-41">
+                <ul>
+                    <li>উপ-ধারা ৪১.১: কোনো ব্যক্তি একই পদে টানা দুই মেয়াদের বেশি থাকতে পারবে না (শূরা বিশেষ বিবেচনা না করলে)।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		
+		<div class="const-card" onclick="toggleCard(42)">
+            <div class="card-header"><h3>৪২. আর্থিক আমানত</h3><i class="fas fa-plus" id="icon-42"></i></div>
+            <div class="card-body" id="body-42">
+                <ul>
+                    <li>উপ-ধারা ৪২.১: দলের ফান্ডের অর্থ কেবল অনুমোদিত জনকল্যাণমূলক ও সাংগঠনিক কাজে ব্যয় হবে। বিলাসিতা নিষিদ্ধ।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(43)">
+            <div class="card-header"><h3>৪৩. প্রচার ও মিডিয়া</h3><i class="fas fa-plus" id="icon-43"></i></div>
+            <div class="card-body" id="body-43">
+                <ul>
+                    <li>উপ-ধারা ৪৩.১: HAMS Knock হবে দলের প্রধান বৈচারিক ও তথ্য প্রচারের মাধ্যম।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(44)">
+            <div class="card-header"><h3>৪৪. সদস্য প্রশিক্ষণ (ওরিয়েন্টেশন)</h3><i class="fas fa-plus" id="icon-44"></i></div>
+            <div class="card-body" id="body-44">
+                <ul>
+                    <li>উপ-ধারা ৪৪.১: প্রতি মাসে নূন্যতম একটি "নীতিনৈতিকতা ও ইনসাফ" ক্লাস প্রতিটি ইউনিটে বাধ্যতামূলক।</li>
+                    
+                </ul>
+            </div>
+        </div><div class="const-card" onclick="toggleCard(45)">
+            <div class="card-header"><h3>৪৫. সামাজিক বিচার (সালিশ)</h3><i class="fas fa-plus" id="icon-45"></i></div>
+            <div class="card-body" id="body-45">
+                <ul>
+                    <li>উপ-ধারা ৪৫.১: এলাকার বিচার সালিশে কোনোভাবেই যাতে প্রভাবশালীরা পক্ষপাতিত্ব না করতে পারে, ওয়ার্ড কমিটি তা পর্যবেক্ষণ করবে।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="chapter-title">১৭. চূড়ান্ত ও বিবিধ ধারা</div>
+		<div class="const-card" onclick="toggleCard(46)">
+            <div class="card-header"><h3>৪৬. নির্বাচনী অংশগ্রহণ</h3><i class="fas fa-plus" id="icon-46"></i></div>
+            <div class="card-body" id="body-46">
+                <ul>
+                    <li>উপ-ধারা ৪৬.১: কেবল সৎ ও যোগ্য ব্যক্তিকে মনোনয়ন দেওয়া হবে; কোনো প্রকার "মনোনয়ন বাণিজ্য" প্রমাণিত হলে পুরো কমিটি বাতিল হবে।</li>
+                    
+                </ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(47)">
+            <div class="card-header"><h3>৪৭. ছায়া সরকার</h3><i class="fas fa-plus" id="icon-47"></i></div>
+            <div class="card-body" id="body-47">
+                <ul>
+                    <li>উপ-ধারা ৪৭.১: প্রতিটি প্রধান মন্ত্রণালয়ের জন্য দলের ভেতর থেকে একটি "ছায়া বিশেষজ্ঞ টিম" গঠন করা হবে যারা বিকল্প পলিসি তৈরি করবে।</li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="const-card" onclick="toggleCard(48)">
+            <div class="card-header"><h3>৪৮. উত্তরাধিকারী নিষিদ্ধকরণ</h3><i class="fas fa-plus" id="icon-48"></i></div>
+            <div class="card-body" id="body-48">
+                <ul><li>উপ-ধারা ৪৮.১: কোনো নেতার মৃত্যুর পর তার পরিবারের সদস্যকে সরাসরি পদ দেওয়া যাবে না; তাকে যোগ্যতা প্রমাণ করে আসতে হবে।</li></ul>
+            </div>
+        </div>
+		<div class="const-card" onclick="toggleCard(48)">
+            <div class="card-header"><h3>৪৯. গঠনতন্ত্রের সুরক্ষা</h3><i class="fas fa-plus" id="icon-49"></i></div>
+            <div class="card-body" id="body-49">
+                <ul><li>উপ-ধারা ৪৯.১: গঠনতন্ত্রের মূল কপি একটি ডিজিটাল এনক্রিপ্টেড সার্ভারে সংরক্ষিত থাকবে যাতে কেউ গোপনে পরিবর্তন করতে না পারে।</li></ul>
+            </div>
+        </div>
+        <div class="const-card" onclick="toggleCard(50)">
+            <div class="card-header"><h3>৫০. বিলুপ্তি</h3><i class="fas fa-plus" id="icon-50"></i></div>
+            <div class="card-body" id="body-50">
+                <ul><li>উপ-ধারা ৫০.১: লক্ষ্য থেকে বিচ্যুত হলে সংগঠনের বিলুপ্তি বা পুনর্গঠনের সিদ্ধান্ত নেওয়া হবে।</li></ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+<footer style="background: #000; border-top: 2px solid var(--gold); padding: 80px 5% 30px; margin-top: 100px; color: #fff; font-family: 'Anik', sans-serif;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+        
+        <div>
+            <h2 class="eng" style="color: var(--gold); font-size: 1.8rem; margin-bottom: 20px;">BNIF</h2>
+            <p style="color: var(--subtext); font-size: 0.9rem; line-height: 1.8;">
+                বাংলাদেশ ন্যাশনাল ইত্তিহাদ ফ্রন্ট (BNIF) একটি আধিপত্যবাদ বিরোধী রাজনৈতিক আন্দোলন। আল্লাহর সার্বভৌমত্ব এবং ইনসাফ কায়েমের মাধ্যমে একটি বৈষম্যহীন রাষ্ট্র গড়াই আমাদের মূল লক্ষ্য।
+            </p>
+            <div style="margin-top: 25px; display: flex; gap: 15px;">
+                <a href="#" style="color: var(--gold); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                <a href="#" style="color: var(--gold); font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                <a href="#" style="color: var(--gold); font-size: 1.5rem;"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" style="color: var(--gold); font-size: 1.5rem;"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+
+        <div>
+            <h3 style="color: var(--gold); margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">গুরুত্বপূর্ণ লিঙ্ক</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 12px;"><a href="#about" style="color: var(--subtext); text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#b0b0b0'">আমাদের সম্পর্কে</a></li>
+                <li style="margin-bottom: 12px;"><a href="#constitution" style="color: var(--subtext); text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#b0b0b0'">পূর্ণাঙ্গ গঠনতন্ত্র</a></li>
+                <li style="margin-bottom: 12px;"><a href="#membership" style="color: var(--subtext); text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#b0b0b0'">সদস্য আবেদন</a></li>
+                <li style="margin-bottom: 12px;"><a href="#contact" style="color: var(--subtext); text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#b0b0b0'">যোগাযোগ</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 style="color: var(--gold); margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">আমাদের দর্শন</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 12px; color: var(--subtext); font-size: 0.9rem;"><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> আল্লাহর সার্বভৌমত্ব</li>
+                <li style="margin-bottom: 12px; color: var(--subtext); font-size: 0.9rem;"><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> ইনসাফ ভিত্তিক রাষ্ট্র</li>
+                <li style="margin-bottom: 12px; color: var(--subtext); font-size: 0.9rem;"><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> আধিপত্যবাদ বিরোধী</li>
+                <li style="margin-bottom: 12px; color: var(--subtext); font-size: 0.9rem;"><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> সুদ ও ঘুষ মুক্ত সমাজ</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 style="color: var(--gold); margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">অফিসিয়াল নিউজলেটার</h3>
+            <p style="color: var(--subtext); font-size: 0.85rem; margin-bottom: 15px;">নতুন আপডেট ও ইশতেহার পেতে আপনার ইমেইল দিয়ে যুক্ত থাকুন।</p>
+            <div style="display: flex; background: var(--glass); border: 1px solid var(--border); border-radius: 50px; padding: 5px;">
+                <input type="email" placeholder="আপনার ইমেইল..." style="background: transparent; border: none; padding: 10px 15px; color: #fff; flex: 1; outline: none;">
+                <button style="background: var(--gold); border: none; color: #000; padding: 10px 20px; border-radius: 50px; font-weight: bold; cursor: pointer;">JOIN</button>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255, 215, 0, 0.1);">
+        <p style="color: #666; font-size: 0.85rem;">
+            &copy; 2026 বাংলাদেশ ন্যাশনাল ইত্তিহাদ ফ্রন্ট (BNIF) | সকল স্বত্ব সংরক্ষিত। <br>
+            Powered by <span class="eng" style="color: var(--gold); font-weight: bold;">HAMS Knock</span>
+        </p>
+    </div>
+</footer>
+
+<script>
+    // Accordion Logic
+    function toggleCard(id) {
+        const body = document.getElementById('body-' + id);
+        const icon = document.getElementById('icon-' + id);
+        
+        // Toggle Open class
+        body.classList.toggle('open');
+        
+        // Update Icon
+        if(body.classList.contains('open')) {
+            icon.classList.replace('fa-plus', 'fa-minus');
+            icon.style.transform = 'rotate(180deg)';
+        } else {
+            icon.classList.replace('fa-minus', 'fa-plus');
+            icon.style.transform = 'rotate(0deg)';
+        }
+    }
+
+    // Search Logic
+    document.getElementById('constSearch').addEventListener('input', function() {
+        let val = this.value.toLowerCase();
+        let cards = document.querySelectorAll('.const-card');
+        
+        cards.forEach(card => {
+            let text = card.innerText.toLowerCase();
+            card.style.display = text.includes(val) ? 'block' : 'none';
+        });
+    });
+
+    // Expand All Logic
+    function expandAll() {
+        document.querySelectorAll('.card-body').forEach(b => b.classList.add('open'));
+        document.querySelectorAll('.card-header i').forEach(i => i.classList.replace('fa-plus', 'fa-minus'));
+    }
+</script>
+
+</body>
+</html>
